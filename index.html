@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Flood Risk Detection & Early Warning System</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef5f9;
+    color: #172b4d;
+}
+
+header {
+    background: linear-gradient(135deg, #075985, #0e7490);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+header p {
+    opacity: 0.9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.status {
+    font-weight: bold;
+}
+
+.live {
+    color: #16a34a;
+}
+
+select {
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.value {
+    font-size: 30px;
+    font-weight: bold;
+    color: #075985;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.risk-card {
+    text-align: center;
+}
+
+.risk-score {
+    font-size: 65px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.risk-level {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.low {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.moderate {
+    background: #fef9c3;
+    color: #854d0e;
+}
+
+.high {
+    background: #ffedd5;
+    color: #9a3412;
+}
+
+.critical {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.warning {
+    margin-top: 20px;
+    padding: 18px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.warning.normal {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.warning.alert {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.data-row:last-child {
+    border-bottom: none;
+}
+
+.history {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 13px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+    background: #f1f5f9;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    color: #64748b;
+}
+
+@media(max-width: 800px) {
+    .metrics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 500px) {
+    .metrics {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌊 AI Flood Risk Detection & Early Warning System</h1>
+    <p>Real-Time Environmental Monitoring & Intelligent Flood Prediction</p>
+</header>
+
+<div class="container">
+
+    <div class="top-bar">
+        <div>
+            <strong>📍 Monitoring Location:</strong>
+            <select id="location" onchange="changeLocation()">
+                <option>Chennai</option>
+                <option>Trichy</option>
+                <option>Thanjavur</option>
+                <option>Coimbatore</option>
+            </select>
+        </div>
+
+        <div class="status">
+            ● <span class="live">LIVE MONITORING</span>
+        </div>
+    </div>
+
+    <div class="metrics">
+
+        <div class="card">
+            <h3>🌧️ Rainfall</h3>
+            <div class="value" id="rainfall">42 mm</div>
+        </div>
+
+        <div class="card">
+            <h3>💧 Water Level</h3>
+            <div class="value" id="waterLevel">3.2 m</div>
+        </div>
+
+        <div class="card">
+            <h3>🌊 River Level</h3>
+            <div class="value" id="riverLevel">4.1 m</div>
+        </div>
+
+        <div class="card">
+            <h3>🌡️ Temperature</h3>
+            <div class="value" id="temperature">29°C</div>
+        </div>
+
+    </div>
+
+    <div class="main-grid">
+
+        <div class="card risk-card">
+
+            <h2>🤖 AI Flood Risk Prediction</h2>
+
+            <div class="risk-score" id="riskScore">
+                32
+            </div>
+
+            <div id="riskLevel" class="risk-level moderate">
+                MODERATE RISK
+            </div>
+
+            <div id="warning" class="warning normal">
+                ⚠️ Monitor rainfall and water levels.
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>📊 Environmental Data</h2>
+
+            <div class="data-row">
+                <span>Humidity</span>
+                <strong id="humidity">78%</strong>
+            </div>
+
+            <div class="data-row">
+                <span>Wind Speed</span>
+                <strong id="wind">14 km/h</strong>
+            </div>
+
+            <div class="data-row">
+                <span>Soil Moisture</span>
+                <strong id="soil">61%</strong>
+            </div>
+
+            <div class="data-row">
+                <span>Sensor Status</span>
+                <strong class="live">Online</strong>
+            </div>
+
+            <div class="data-row">
+                <span>Last Updated</span>
+                <strong id="updated">--</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card history">
+
+        <h2>📋 Recent Monitoring History</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Rainfall</th>
+                    <th>Water Level</th>
+                    <th>Risk Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTable">
+
+                <tr>
+                    <td>16:20</td>
+                    <td>42 mm</td>
+                    <td>3.2 m</td>
+                    <td>32</td>
+                    <td>Moderate</td>
+                </tr>
+
+                <tr>
+                    <td>16:15</td>
+                    <td>38 mm</td>
+                    <td>3.0 m</td>
+                    <td>28</td>
+                    <td>Moderate</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<footer>
+    AI-Based Real-Time Flood Risk Detection & Early Warning System
+    <br>
+    Intelligent Disaster Management Prototype
+</footer>
+
+<script>
+
+let readings = [];
+
+function calculateRisk(rainfall, water, river, soil) {
+
+    let score = 0;
+
+    score += Math.min(rainfall * 0.6, 35);
+    score += Math.min(water * 8, 25);
+    score += Math.min(river * 5, 25);
+    score += Math.min(soil * 0.15, 15);
+
+    return Math.round(Math.min(score, 100));
+}
+
+function updateRisk() {
+
+    let rainfall = parseFloat(
+        document.getElementById("rainfall").innerText
+    );
+
+    let water = parseFloat(
+        document.getElementById("waterLevel").innerText
+    );
+
+    let river = parseFloat(
+        document.getElementById("riverLevel").innerText
+    );
+
+    let soil = parseFloat(
+        document.getElementById("soil").innerText
+    );
+
+    let score = calculateRisk(
+        rainfall,
+        water,
+        river,
+        soil
+    );
+
+    document.getElementById("riskScore").innerText = score;
+
+    let level = document.getElementById("riskLevel");
+    let warning = document.getElementById("warning");
+
+    level.className = "risk-level";
+
+    if(score < 30) {
+
+        level.innerText = "LOW RISK";
+        level.classList.add("low");
+
+        warning.className = "warning normal";
+        warning.innerText =
+            "✅ Flood risk is currently low. Normal monitoring.";
+
+    } else if(score < 60) {
+
+        level.innerText = "MODERATE RISK";
+        level.classList.add("moderate");
+
+        warning.className = "warning normal";
+        warning.innerText =
+            "⚠️ Monitor rainfall and water levels.";
+
+    } else if(score < 80) {
+
+        level.innerText = "HIGH RISK";
+        level.classList.add("high");
+
+        warning.className = "warning alert";
+        warning.innerText =
+            "🚨 FLOOD WARNING: Prepare emergency response.";
+
+    } else {
+
+        level.innerText = "CRITICAL RISK";
+        level.classList.add("critical");
+
+        warning.className = "warning alert";
+        warning.innerText =
+            "🚨 CRITICAL ALERT: Immediate evacuation preparedness required.";
+
+    }
+
+    addHistory(rainfall, water, score, level.innerText);
+}
+
+function addHistory(rainfall, water, score, status) {
+
+    let now = new Date();
+
+    let time =
+        now.getHours().toString().padStart(2,"0")
+        + ":" +
+        now.getMinutes().toString().padStart(2,"0");
+
+    let table = document.getElementById("historyTable");
+
+    let row = table.insertRow(0);
+
+    row.innerHTML = `
+        <td>${time}</td>
+        <td>${rainfall} mm</td>
+        <td>${water} m</td>
+        <td>${score}</td>
+        <td>${status}</td>
+    `;
+
+    if(table.rows.length > 6) {
+        table.deleteRow(6);
+    }
+}
+
+function simulateSensorData() {
+
+    let rainfall =
+        Math.floor(Math.random() * 70) + 20;
+
+    let water =
+        (Math.random() * 2 + 2.5).toFixed(1);
+
+    let river =
+        (Math.random() * 2 + 3.0).toFixed(1);
+
+    let temperature =
+        Math.floor(Math.random() * 6) + 27;
+
+    let humidity =
+        Math.floor(Math.random() * 20) + 70;
+
+    let soil =
+        Math.floor(Math.random() * 30) + 55;
+
+    document.getElementById("rainfall").innerText =
+        rainfall + " mm";
+
+    document.getElementById("waterLevel").innerText =
+        water + " m";
+
+    document.getElementById("riverLevel").innerText =
+        river + " m";
+
+    document.getElementById("temperature").innerText =
+        temperature + "°C";
+
+    document.getElementById("humidity").innerText =
+        humidity + "%";
+
+    document.getElementById("soil").innerText =
+        soil + "%";
+
+    document.getElementById("wind").innerText =
+        Math.floor(Math.random() * 20 + 5) + " km/h";
+
+    document.getElementById("updated").innerText =
+        new Date().toLocaleTimeString();
+
+    updateRisk();
+}
+
+function changeLocation() {
+
+    let location =
+        document.getElementById("location").value;
+
+    console.log(
+        "Monitoring location changed to:",
+        location
+    );
+
+    simulateSensorData();
+}
+
+setInterval(simulateSensorData, 10000);
+
+updateRisk();
+
+</script>
+
+</body>
+</html>
