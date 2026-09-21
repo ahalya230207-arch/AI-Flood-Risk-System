@@ -1,263 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>
-AI Flood Risk Detection & Early Warning System
-</title>
+<title>AI Flood Risk Detection & Early Warning System</title>
 
 <style>
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    background: #eef5f9;
-    color: #172b4d;
+body{
+    background:#eef3f8;
+    color:#172033;
 }
 
-header {
-    background: linear-gradient(135deg, #075985, #0e7490);
-    color: white;
-    padding: 25px;
-    text-align: center;
+/* HEADER */
+
+header{
+    background:#0b1f33;
+    color:white;
+    padding:22px;
+    text-align:center;
 }
 
-header h1 {
-    font-size: 28px;
-    margin-bottom: 8px;
+header h1{
+    font-size:28px;
+    margin-bottom:8px;
 }
 
-header p {
-    opacity: 0.9;
+header p{
+    color:#b9d8ee;
+    font-size:14px;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 25px auto;
-    padding: 0 20px;
+/* MAIN */
+
+.container{
+    max-width:1250px;
+    margin:auto;
+    padding:20px;
 }
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+/* TOP BAR */
+
+.topbar{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.status {
-    font-weight: bold;
+.location-box label{
+    font-weight:bold;
+    display:block;
+    margin-bottom:7px;
 }
 
-.live {
-    color: #16a34a;
+select{
+    padding:10px 14px;
+    border:1px solid #ccd6e0;
+    border-radius:8px;
+    font-size:15px;
 }
 
-select {
-    padding: 10px;
-    border-radius: 7px;
-    border: 1px solid #ccc;
+button{
+    border:none;
+    padding:11px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
-.metrics {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-bottom: 20px;
+.refresh-btn{
+    background:#087ea4;
+    color:white;
 }
 
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+.refresh-btn:hover{
+    background:#066985;
 }
 
-.card h3 {
-    color: #64748b;
-    font-size: 15px;
-    margin-bottom: 12px;
+/* STATUS */
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
 }
 
-.value {
-    font-size: 30px;
-    font-weight: bold;
-    color: #075985;
+.status-dot{
+    width:11px;
+    height:11px;
+    background:#18a558;
+    border-radius:50%;
 }
 
-.main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+/* SECTION */
+
+.section-title{
+    margin:25px 0 15px;
+    font-size:20px;
 }
 
-.risk-card {
-    text-align: center;
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
-.risk-score {
-    font-size: 65px;
-    font-weight: bold;
-    margin: 20px 0;
+.card{
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.07);
 }
 
-.risk-level {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 20px;
+.card-title{
+    color:#687789;
+    font-size:13px;
+    margin-bottom:9px;
 }
 
-.low {
-    background: #dcfce7;
-    color: #166534;
+.card-value{
+    font-size:25px;
+    font-weight:bold;
 }
 
-.moderate {
-    background: #fef9c3;
-    color: #854d0e;
+.card-unit{
+    color:#667788;
+    font-size:13px;
 }
 
-.high {
-    background: #ffedd5;
-    color: #9a3412;
+/* RISK */
+
+.risk-card{
+    margin-top:20px;
+    background:white;
+    border-radius:14px;
+    padding:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
-.critical {
-    background: #fee2e2;
-    color: #991b1b;
+.risk-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-.warning {
-    margin-top: 20px;
-    padding: 18px;
-    border-radius: 10px;
-    font-weight: bold;
+.risk-score{
+    font-size:48px;
+    font-weight:bold;
 }
 
-.warning.normal {
-    background: #dcfce7;
-    color: #166534;
+.risk-level{
+    font-size:22px;
+    font-weight:bold;
+    padding:10px 18px;
+    border-radius:30px;
 }
 
-.warning.alert {
-    background: #fee2e2;
-    color: #991b1b;
+.low{
+    background:#d9f7e5;
+    color:#087a38;
 }
 
-.data-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #e2e8f0;
+.moderate{
+    background:#fff2c7;
+    color:#9a6b00;
 }
 
-.data-row:last-child {
-    border-bottom: none;
+.high{
+    background:#ffe0c7;
+    color:#b64b00;
 }
 
-.history {
-    margin-top: 20px;
-    overflow-x: auto;
+.critical{
+    background:#ffd4d4;
+    color:#b40000;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+.warning{
+    margin-top:15px;
+    padding:15px;
+    background:#f3f6f9;
+    border-radius:9px;
+    font-size:15px;
 }
 
-th,
-td {
-    padding: 13px;
-    text-align: center;
-    border-bottom: 1px solid #e2e8f0;
+/* PROGRESS */
+
+.progress-container{
+    margin-top:20px;
 }
 
-th {
-    background: #f1f5f9;
+.progress{
+    height:18px;
+    background:#e1e7ed;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-footer {
-    text-align: center;
-    padding: 25px;
-    margin-top: 30px;
-    color: #64748b;
+.progress-bar{
+    height:100%;
+    width:0%;
+    transition:width .5s ease;
 }
 
-.backend-status {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    font-weight: bold;
-    text-align: center;
+/* FORECAST */
+
+.forecast-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
 }
 
-.backend-online {
-    background: #dcfce7;
-    color: #166534;
+.forecast-card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.06);
 }
 
-.backend-error {
-    background: #fee2e2;
-    color: #991b1b;
+.forecast-time{
+    font-weight:bold;
+    margin-bottom:8px;
 }
 
-@media(max-width: 800px) {
+.forecast-temp{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
 
-    .metrics {
-        grid-template-columns: repeat(2, 1fr);
+.forecast-rain{
+    color:#087ea4;
+    font-size:13px;
+}
+
+/* DEMO */
+
+.demo-panel{
+    margin-top:25px;
+    background:#102a43;
+    color:white;
+    padding:22px;
+    border-radius:12px;
+}
+
+.demo-panel h2{
+    margin-bottom:8px;
+}
+
+.demo-panel p{
+    color:#c5d8e8;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.demo-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.demo-buttons button{
+    background:white;
+    color:#102a43;
+}
+
+.demo-buttons button:hover{
+    background:#dcecf7;
+}
+
+/* HISTORY */
+
+.history-box{
+    background:white;
+    margin-top:25px;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+}
+
+th,td{
+    padding:11px;
+    border-bottom:1px solid #e3e8ed;
+    text-align:left;
+    font-size:14px;
+}
+
+th{
+    background:#f4f7fa;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:30px;
+    background:#0b1f33;
+    color:#c4d5e3;
+    text-align:center;
+    padding:20px;
+    font-size:13px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .main-grid {
-        grid-template-columns: 1fr;
+    .forecast-grid{
+        grid-template-columns:repeat(3,1fr);
     }
-
 }
 
-@media(max-width: 500px) {
+@media(max-width:600px){
 
-    .metrics {
-        grid-template-columns: 1fr;
+    header h1{
+        font-size:21px;
     }
 
-    header h1 {
-        font-size: 22px;
+    .container{
+        padding:12px;
     }
 
+    .grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card{
+        padding:13px;
+    }
+
+    .card-value{
+        font-size:20px;
+    }
+
+    .forecast-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .risk-score{
+        font-size:38px;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
 
-<h1>
-🌊 AI Flood Risk Detection & Early Warning System
-</h1>
+<h1>🌊 AI-Based Real-Time Flood Risk Detection</h1>
 
 <p>
-Real-Time Environmental Monitoring & Intelligent Flood Prediction
+Early Warning System using Weather Data + Machine Learning
 </p>
 
 </header>
@@ -265,20 +391,20 @@ Real-Time Environmental Monitoring & Intelligent Flood Prediction
 
 <div class="container">
 
+<!-- LOCATION -->
 
-<div class="top-bar">
+<div class="topbar">
 
-<div>
+<div class="location-box">
 
-<strong>📍 Monitoring Location:</strong>
+<label>Select Location</label>
 
-<select id="location"
-onchange="changeLocation()">
+<select id="locationSelect">
 
-<option>Chennai</option>
-<option>Trichy</option>
-<option>Thanjavur</option>
-<option>Coimbatore</option>
+<option value="chennai">Chennai</option>
+<option value="trichy">Trichy</option>
+<option value="thanjavur">Thanjavur</option>
+<option value="coimbatore">Coimbatore</option>
 
 </select>
 
@@ -287,241 +413,308 @@ onchange="changeLocation()">
 
 <div class="status">
 
-● <span class="live">
-LIVE MONITORING
+<span class="status-dot" id="statusDot"></span>
+
+<span id="systemStatus">
+Connecting...
 </span>
 
 </div>
 
-</div>
 
-
-<div class="metrics">
-
-
-<div class="card">
-
-<h3>🌧️ Rainfall</h3>
-
-<div class="value"
-id="rainfall">
-
-42 mm
-
-</div>
+<button class="refresh-btn" onclick="loadWeather()">
+🔄 Refresh
+</button>
 
 </div>
 
 
-<div class="card">
+<!-- WEATHER -->
 
-<h3>💧 Water Level</h3>
-
-<div class="value"
-id="waterLevel">
-
-3.2 m
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌊 River Level</h3>
-
-<div class="value"
-id="riverLevel">
-
-4.1 m
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>🌡️ Temperature</h3>
-
-<div class="value"
-id="temperature">
-
-29°C
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="main-grid">
-
-
-<div class="card risk-card">
-
-<h2>
-🤖 AI Flood Risk Prediction
+<h2 class="section-title">
+📊 Current Environmental Conditions
 </h2>
 
 
-<div class="risk-score"
-id="riskScore">
-
-32
-
-</div>
-
-
-<div id="riskLevel"
-class="risk-level moderate">
-
-MODERATE RISK
-
-</div>
-
-
-<div id="warning"
-class="warning normal">
-
-⚠️ Monitor rainfall and water levels.
-
-</div>
-
-
-<div id="backendStatus"
-class="backend-status">
-
-Connecting to AI backend...
-
-</div>
-
-
-</div>
-
+<div class="grid">
 
 <div class="card">
 
-<h2>
-📊 Environmental Data
-</h2>
-
-
-<div class="data-row">
-
-<span>Humidity</span>
-
-<strong id="humidity">
-78%
-</strong>
-
+<div class="card-title">
+🌧 Rainfall
 </div>
 
-
-<div class="data-row">
-
-<span>Wind Speed</span>
-
-<strong id="wind">
-14 km/h
-</strong>
-
-</div>
-
-
-<div class="data-row">
-
-<span>Soil Moisture</span>
-
-<strong id="soil">
-61%
-</strong>
-
-</div>
-
-
-<div class="data-row">
-
-<span>Sensor Status</span>
-
-<strong class="live">
-Online
-</strong>
-
-</div>
-
-
-<div class="data-row">
-
-<span>Last Updated</span>
-
-<strong id="updated">
+<div class="card-value" id="rainfall">
 --
-</strong>
+</div>
+
+<div class="card-unit">
+mm
+</div>
 
 </div>
 
 
+<div class="card">
+
+<div class="card-title">
+🌡 Temperature
+</div>
+
+<div class="card-value" id="temperature">
+--
+</div>
+
+<div class="card-unit">
+°C
+</div>
+
 </div>
 
 
+<div class="card">
+
+<div class="card-title">
+💧 Humidity
+</div>
+
+<div class="card-value" id="humidity">
+--
+</div>
+
+<div class="card-unit">
+%
+</div>
+
 </div>
 
 
-<div class="card history">
+<div class="card">
+
+<div class="card-title">
+💨 Wind Speed
+</div>
+
+<div class="card-value" id="wind">
+--
+</div>
+
+<div class="card-unit">
+km/h
+</div>
+
+</div>
 
 
-<h2>
-📋 Recent Monitoring History
+<div class="card">
+
+<div class="card-title">
+🌱 Soil Moisture
+</div>
+
+<div class="card-value" id="soil">
+--
+</div>
+
+<div class="card-unit">
+%
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-title">
+🌊 Water Level
+</div>
+
+<div class="card-value" id="water">
+--
+</div>
+
+<div class="card-unit">
+m (prototype estimate)
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-title">
+🏞 River Level
+</div>
+
+<div class="card-value" id="river">
+--
+</div>
+
+<div class="card-unit">
+m (prototype estimate)
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-title">
+🕒 Last Updated
+</div>
+
+<div class="card-value" id="updated">
+--
+</div>
+
+<div class="card-unit">
+local time
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RISK -->
+
+<h2 class="section-title">
+🤖 AI Flood Risk Assessment
 </h2>
 
+
+<div class="risk-card">
+
+<div class="risk-header">
+
+<div>
+
+<div class="card-title">
+AI RISK SCORE
+</div>
+
+<div class="risk-score" id="riskScore">
+--
+</div>
+
+</div>
+
+
+<div id="riskLevel" class="risk-level low">
+WAITING
+</div>
+
+</div>
+
+
+<div class="progress-container">
+
+<div class="progress">
+
+<div
+id="riskBar"
+class="progress-bar">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="warning" id="warningText">
+
+Waiting for environmental data...
+
+</div>
+
+</div>
+
+
+<!-- FORECAST -->
+
+<h2 class="section-title">
+⏱ Next 6 Hours Forecast
+</h2>
+
+
+<div
+class="forecast-grid"
+id="forecastGrid">
+
+</div>
+
+
+<!-- DEMO MODE -->
+
+<div class="demo-panel">
+
+<h2>
+🧪 Demo / Test Mode
+</h2>
+
+<p>
+Use these buttons only for project demonstration.
+They simulate environmental conditions so all four AI risk levels can be displayed.
+Real weather mode remains connected to Open-Meteo and the backend model.
+</p>
+
+
+<div class="demo-buttons">
+
+<button onclick="runDemo('LOW')">
+LOW
+</button>
+
+<button onclick="runDemo('MODERATE')">
+MODERATE
+</button>
+
+<button onclick="runDemo('HIGH')">
+HIGH
+</button>
+
+<button onclick="runDemo('CRITICAL')">
+CRITICAL
+</button>
+
+<button onclick="loadWeather()">
+🌐 Return to Real Weather
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div class="history-box">
+
+<h2>
+📋 Screening / Prediction History
+</h2>
 
 <table>
-
 
 <thead>
 
 <tr>
 
 <th>Time</th>
-
-<th>Rainfall</th>
-
-<th>Water Level</th>
-
+<th>Location</th>
 <th>Risk Score</th>
-
-<th>Status</th>
+<th>Risk Level</th>
 
 </tr>
 
 </thead>
 
 
-<tbody id="historyTable">
-
-<tr>
-
-<td>--</td>
-
-<td>--</td>
-
-<td>--</td>
-
-<td>--</td>
-
-<td>Waiting...</td>
-
-</tr>
+<tbody id="historyBody">
 
 </tbody>
 
-
 </table>
-
 
 </div>
 
@@ -533,525 +726,1259 @@ Online
 
 AI-Based Real-Time Flood Risk Detection & Early Warning System
 
-<br>
+<br><br>
 
-Intelligent Disaster Management Prototype
+Prototype Project | AI + Weather Data + Machine Learning
 
 </footer>
 
 
-
 <script>
 
-
 /* ==========================================
-   RENDER BACKEND API
-   ========================================== */
+   CONFIGURATION
+========================================== */
+
 
 const API_URL =
 "https://ai-flood-risk-backend-1zrs.onrender.com/predict";
 
 
+const locations = {
+
+chennai:{
+name:"Chennai",
+latitude:13.0827,
+longitude:80.2707
+},
+
+trichy:{
+name:"Trichy",
+latitude:10.7905,
+longitude:78.7047
+},
+
+thanjavur:{
+name:"Thanjavur",
+latitude:10.7867,
+longitude:79.1378
+},
+
+coimbatore:{
+name:"Coimbatore",
+latitude:11.0168,
+longitude:76.9558
+}
+
+};
+
+
+let currentLocation =
+document.getElementById("locationSelect").value;
+
+
 /* ==========================================
-   UPDATE AI RISK
-   ========================================== */
+   LOCATION CHANGE
+========================================== */
 
-async function updateRisk() {
 
+document
+.getElementById("locationSelect")
+.addEventListener("change",function(){
 
-    let rainfall =
-        parseFloat(
-            document.getElementById("rainfall").innerText
-        );
+currentLocation=this.value;
 
+loadWeather();
 
-    let water =
-        parseFloat(
-            document.getElementById("waterLevel").innerText
-        );
+});
 
 
-    let river =
-        parseFloat(
-            document.getElementById("riverLevel").innerText
-        );
+/* ==========================================
+   REAL WEATHER
+========================================== */
 
 
-    let soil =
-        parseFloat(
-            document.getElementById("soil").innerText
-        );
+async function getRealWeather(){
 
+const location =
+locations[currentLocation];
 
-    let humidity =
-        parseFloat(
-            document.getElementById("humidity").innerText
-        );
 
+const url =
+"https://api.open-meteo.com/v1/forecast" +
 
-    let backendStatus =
-        document.getElementById("backendStatus");
+"?latitude=" +
+location.latitude +
 
+"&longitude=" +
+location.longitude +
 
-    backendStatus.innerText =
-        "🤖 AI is analysing environmental data...";
+"&current=" +
+"temperature_2m," +
+"relative_humidity_2m," +
+"precipitation," +
+"wind_speed_10m," +
+"soil_moisture_0_to_1cm" +
 
+"&hourly=" +
+"temperature_2m," +
+"relative_humidity_2m," +
+"precipitation," +
+"wind_speed_10m," +
+"precipitation_probability" +
 
-    backendStatus.className =
-        "backend-status";
+"&forecast_hours=24" +
 
+"&timezone=auto";
 
-    try {
 
+const response =
+await fetch(url);
 
-        const response =
-            await fetch(API_URL, {
 
-                method: "POST",
+if(!response.ok){
 
-                headers: {
-
-                    "Content-Type":
-                        "application/json"
-
-                },
-
-                body: JSON.stringify({
-
-                    rainfall: rainfall,
-
-                    water_level: water,
-
-                    river_level: river,
-
-                    soil_moisture: soil,
-
-                    humidity: humidity
-
-                })
-
-            });
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Backend returned error"
-            );
-
-        }
-
-
-        const result =
-            await response.json();
-
-
-        console.log(
-            "AI Backend Response:",
-            result
-        );
-
-
-        let score =
-            result.risk_score;
-
-
-        let riskLevel =
-            result.risk_level;
-
-
-        let warningText =
-            result.warning;
-
-
-        document.getElementById(
-            "riskScore"
-        ).innerText = score;
-
-
-        let level =
-            document.getElementById(
-                "riskLevel"
-            );
-
-
-        let warning =
-            document.getElementById(
-                "warning"
-            );
-
-
-        level.className =
-            "risk-level";
-
-
-        if (riskLevel === "LOW") {
-
-
-            level.innerText =
-                "LOW RISK";
-
-
-            level.classList.add(
-                "low"
-            );
-
-
-            warning.className =
-                "warning normal";
-
-
-            warning.innerText =
-                "✅ " + warningText;
-
-
-        }
-
-
-        else if (
-            riskLevel === "MODERATE"
-        ) {
-
-
-            level.innerText =
-                "MODERATE RISK";
-
-
-            level.classList.add(
-                "moderate"
-            );
-
-
-            warning.className =
-                "warning normal";
-
-
-            warning.innerText =
-                "⚠️ " + warningText;
-
-
-        }
-
-
-        else if (
-            riskLevel === "HIGH"
-        ) {
-
-
-            level.innerText =
-                "HIGH RISK";
-
-
-            level.classList.add(
-                "high"
-            );
-
-
-            warning.className =
-                "warning alert";
-
-
-            warning.innerText =
-                "🚨 " + warningText;
-
-
-        }
-
-
-        else {
-
-
-            level.innerText =
-                "CRITICAL RISK";
-
-
-            level.classList.add(
-                "critical"
-            );
-
-
-            warning.className =
-                "warning alert";
-
-
-            warning.innerText =
-                "🚨 " + warningText;
-
-
-        }
-
-
-        backendStatus.innerText =
-            "🟢 AI Backend Online";
-
-
-        backendStatus.className =
-            "backend-status backend-online";
-
-
-        addHistory(
-            rainfall,
-            water,
-            score,
-            level.innerText
-        );
-
-
-    }
-
-
-    catch (error) {
-
-
-        console.error(
-            "AI Backend Error:",
-            error
-        );
-
-
-        backendStatus.innerText =
-            "🔴 AI Backend Connection Failed";
-
-
-        backendStatus.className =
-            "backend-status backend-error";
-
-
-        document.getElementById(
-            "warning"
-        ).innerText =
-            "⚠️ Unable to connect to AI prediction service.";
-
-
-        document.getElementById(
-            "warning"
-        ).className =
-            "warning alert";
-
-
-    }
+throw new Error(
+"Weather API failed"
+);
 
 }
 
+
+const data =
+await response.json();
+
+
+const current =
+data.current;
+
+
+/* ------------------------------------------
+   WEATHER VALUES
+------------------------------------------ */
+
+
+const rainfall =
+Number(current.precipitation || 0);
+
+
+const temperature =
+Number(current.temperature_2m || 0);
+
+
+const humidity =
+Number(current.relative_humidity_2m || 0);
+
+
+const wind =
+Number(current.wind_speed_10m || 0);
+
+
+const soilRaw =
+Number(current.soil_moisture_0_to_1cm || 0);
+
+
+/*
+Convert soil moisture approximately
+to percentage for prototype display.
+*/
+
+const soil =
+Math.max(
+0,
+Math.min(
+100,
+soilRaw * 100
+)
+);
+
+
+/* ------------------------------------------
+   PROTOTYPE WATER LEVEL
+------------------------------------------ */
+
+
+const water =
+Math.max(
+1.0,
+Math.min(
+6.5,
+1.0 +
+rainfall * 0.08 +
+Math.max(
+0,
+humidity - 60
+) * 0.01
+)
+);
+
+
+/* ------------------------------------------
+   PROTOTYPE RIVER LEVEL
+------------------------------------------ */
+
+
+const river =
+Math.max(
+1.5,
+Math.min(
+7.0,
+1.5 +
+rainfall * 0.07 +
+Math.max(
+0,
+humidity - 60
+) * 0.012
+)
+);
+
+
+return {
+
+rainfall,
+temperature,
+humidity,
+wind,
+soil,
+water,
+river,
+
+hourly:data.hourly
+
+};
+
+}
+
+
+/* ==========================================
+   DISPLAY WEATHER
+========================================== */
+
+
+function displayWeather(weather){
+
+document.getElementById(
+"rainfall"
+).textContent =
+weather.rainfall.toFixed(1);
+
+
+document.getElementById(
+"temperature"
+).textContent =
+weather.temperature.toFixed(1);
+
+
+document.getElementById(
+"humidity"
+).textContent =
+weather.humidity.toFixed(0);
+
+
+document.getElementById(
+"wind"
+).textContent =
+weather.wind.toFixed(1);
+
+
+document.getElementById(
+"soil"
+).textContent =
+weather.soil.toFixed(1);
+
+
+document.getElementById(
+"water"
+).textContent =
+weather.water.toFixed(2);
+
+
+document.getElementById(
+"river"
+).textContent =
+weather.river.toFixed(2);
+
+
+document.getElementById(
+"updated"
+).textContent =
+new Date().toLocaleTimeString();
+
+}
+
+
+/* ==========================================
+   FORECAST
+========================================== */
+
+
+function displayForecast(hourly){
+
+const container =
+document.getElementById(
+"forecastGrid"
+);
+
+
+container.innerHTML="";
+
+
+if(!hourly){
+
+return;
+
+}
+
+
+for(
+let i=0;
+i<6;
+i++
+){
+
+const time =
+new Date(
+hourly.time[i]
+);
+
+
+const temperature =
+hourly.temperature_2m[i];
+
+
+const rain =
+hourly.precipitation[i];
+
+
+const probability =
+hourly.precipitation_probability
+? hourly.precipitation_probability[i]
+: 0;
+
+
+const card =
+document.createElement(
+"div"
+);
+
+
+card.className =
+"forecast-card";
+
+
+card.innerHTML = `
+
+<div class="forecast-time">
+
+${time.toLocaleTimeString(
+[],
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+)}
+
+</div>
+
+<div class="forecast-temp">
+
+${Number(
+temperature
+).toFixed(1)}°C
+
+</div>
+
+<div class="forecast-rain">
+
+Rain: ${Number(
+rain
+).toFixed(1)} mm
+
+</div>
+
+<div class="forecast-rain">
+
+Probability: ${Number(
+probability
+).toFixed(0)}%
+
+</div>
+
+`;
+
+
+container.appendChild(card);
+
+}
+
+}
+
+
+/* ==========================================
+   BACKEND AI PREDICTION
+========================================== */
+
+
+async function getAIPrediction(weather){
+
+const response =
+await fetch(
+API_URL,
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+rainfall:
+weather.rainfall,
+
+water_level:
+weather.water,
+
+river_level:
+weather.river,
+
+soil_moisture:
+weather.soil,
+
+humidity:
+weather.humidity
+
+})
+
+});
+
+
+if(!response.ok){
+
+throw new Error(
+"Backend prediction failed"
+);
+
+}
+
+
+return await response.json();
+
+}
+
+
+/* ==========================================
+   OFFLINE RISK CALCULATION
+========================================== */
+
+
+function calculateOfflineRisk(weather){
+
+const rainfallScore =
+Math.min(
+weather.rainfall / 100,
+1
+) * 45;
+
+
+const humidityScore =
+Math.max(
+0,
+(weather.humidity - 50) / 50
+) * 15;
+
+
+const soilScore =
+Math.max(
+0,
+(weather.soil - 30) / 70
+) * 15;
+
+
+const waterScore =
+Math.max(
+0,
+(weather.water - 2) / 3
+) * 15;
+
+
+const riverScore =
+Math.max(
+0,
+(weather.river - 2.5) / 4.5
+) * 10;
+
+
+let score =
+rainfallScore +
+humidityScore +
+soilScore +
+waterScore +
+riverScore;
+
+
+score =
+Math.max(
+0,
+Math.min(
+100,
+score
+)
+);
+
+
+score =
+Math.round(score);
+
+
+let level;
+let warning;
+
+
+if(score < 30){
+
+level="LOW";
+
+warning=
+"Normal monitoring recommended.";
+
+}
+
+else if(score < 60){
+
+level="MODERATE";
+
+warning=
+"Monitor rainfall and water levels.";
+
+}
+
+else if(score < 80){
+
+level="HIGH";
+
+warning=
+"Flood warning. Prepare emergency response.";
+
+}
+
+else{
+
+level="CRITICAL";
+
+warning=
+"Critical flood risk. Immediate emergency preparedness required.";
+
+}
+
+
+return{
+
+risk_score:score,
+
+risk_level:level,
+
+warning:warning
+
+};
+
+}
+
+
+/* ==========================================
+   SHOW RISK
+========================================== */
+
+
+function displayRisk(result){
+
+const score =
+Number(result.risk_score);
+
+
+const level =
+result.risk_level;
+
+
+document.getElementById(
+"riskScore"
+).textContent =
+score;
+
+
+const levelBox =
+document.getElementById(
+"riskLevel"
+);
+
+
+levelBox.textContent =
+level;
+
+
+levelBox.className =
+"risk-level";
+
+
+if(level==="LOW"){
+
+levelBox.classList.add(
+"low"
+);
+
+}
+
+else if(level==="MODERATE"){
+
+levelBox.classList.add(
+"moderate"
+);
+
+}
+
+else if(level==="HIGH"){
+
+levelBox.classList.add(
+"high"
+);
+
+}
+
+else{
+
+levelBox.classList.add(
+"critical"
+);
+
+}
+
+
+document.getElementById(
+"riskBar"
+).style.width =
+score + "%";
+
+
+document.getElementById(
+"warningText"
+).textContent =
+result.warning;
+
+
+/* SAVE */
+
+saveHistory(
+score,
+level
+);
+
+}
 
 
 /* ==========================================
    HISTORY
-   ========================================== */
-
-function addHistory(
-    rainfall,
-    water,
-    score,
-    status
-) {
+========================================== */
 
 
-    let now =
-        new Date();
+function saveHistory(
+score,
+level
+){
+
+const history =
+JSON.parse(
+localStorage.getItem(
+"floodHistory"
+) || "[]"
+);
 
 
-    let time =
-        now.getHours()
-            .toString()
-            .padStart(2, "0")
-        + ":"
-        +
-        now.getMinutes()
-            .toString()
-            .padStart(2, "0");
+const location =
+locations[currentLocation];
 
 
-    let table =
-        document.getElementById(
-            "historyTable"
-        );
+history.unshift({
+
+time:
+new Date().toLocaleString(),
+
+location:
+location.name,
+
+score:score,
+
+level:level
+
+});
 
 
-    if (
-        table.rows.length === 1 &&
-        table.rows[0].cells[4].innerText ===
-        "Waiting..."
-    ) {
+/*
+Keep only latest 20
+*/
 
-        table.deleteRow(0);
-
-    }
+history.splice(
+20
+);
 
 
-    let row =
-        table.insertRow(0);
+localStorage.setItem(
+"floodHistory",
+JSON.stringify(
+history
+)
+);
 
 
-    row.innerHTML = `
-
-        <td>${time}</td>
-
-        <td>${rainfall} mm</td>
-
-        <td>${water} m</td>
-
-        <td>${score}</td>
-
-        <td>${status}</td>
-
-    `;
-
-
-    if (
-        table.rows.length > 6
-    ) {
-
-        table.deleteRow(6);
-
-    }
+displayHistory();
 
 }
 
 
-
 /* ==========================================
-   SIMULATED SENSOR DATA
-   ========================================== */
-
-function simulateSensorData() {
+   DISPLAY HISTORY
+========================================== */
 
 
-    let rainfall =
-        Math.floor(
-            Math.random() * 70
-        ) + 20;
+function displayHistory(){
+
+const body =
+document.getElementById(
+"historyBody"
+);
 
 
-    let water =
-        (
-            Math.random() * 2 + 2.5
-        ).toFixed(1);
+body.innerHTML="";
 
 
-    let river =
-        (
-            Math.random() * 2 + 3.0
-        ).toFixed(1);
+const history =
+JSON.parse(
+localStorage.getItem(
+"floodHistory"
+) || "[]"
+);
 
 
-    let temperature =
-        Math.floor(
-            Math.random() * 6
-        ) + 27;
+if(history.length===0){
 
+body.innerHTML = `
 
-    let humidity =
-        Math.floor(
-            Math.random() * 20
-        ) + 70;
+<tr>
 
+<td colspan="4">
 
-    let soil =
-        Math.floor(
-            Math.random() * 30
-        ) + 55;
+No prediction history available.
 
+</td>
 
-    document.getElementById(
-        "rainfall"
-    ).innerText =
-        rainfall + " mm";
+</tr>
 
+`;
 
-    document.getElementById(
-        "waterLevel"
-    ).innerText =
-        water + " m";
-
-
-    document.getElementById(
-        "riverLevel"
-    ).innerText =
-        river + " m";
-
-
-    document.getElementById(
-        "temperature"
-    ).innerText =
-        temperature + "°C";
-
-
-    document.getElementById(
-        "humidity"
-    ).innerText =
-        humidity + "%";
-
-
-    document.getElementById(
-        "soil"
-    ).innerText =
-        soil + "%";
-
-
-    document.getElementById(
-        "wind"
-    ).innerText =
-        Math.floor(
-            Math.random() * 20 + 5
-        ) + " km/h";
-
-
-    document.getElementById(
-        "updated"
-    ).innerText =
-        new Date()
-            .toLocaleTimeString();
-
-
-    updateRisk();
+return;
 
 }
 
 
+history.forEach(item=>{
 
-/* ==========================================
-   LOCATION
-   ========================================== */
-
-function changeLocation() {
+let className="";
 
 
-    let location =
-        document.getElementById(
-            "location"
-        ).value;
+if(item.level==="LOW")
+className="low";
+
+else if(item.level==="MODERATE")
+className="moderate";
+
+else if(item.level==="HIGH")
+className="high";
+
+else
+className="critical";
 
 
-    console.log(
-        "Monitoring location changed to:",
-        location
-    );
+body.innerHTML += `
 
+<tr>
 
-    simulateSensorData();
+<td>${item.time}</td>
+
+<td>${item.location}</td>
+
+<td>${item.score}</td>
+
+<td>
+
+<span class="risk-level ${className}">
+
+${item.level}
+
+</span>
+
+</td>
+
+</tr>
+
+`;
+
+});
 
 }
 
 
+/* ==========================================
+   SYSTEM STATUS
+========================================== */
+
+
+function setOnlineStatus(){
+
+document.getElementById(
+"systemStatus"
+).textContent =
+"AI Backend Online";
+
+
+document.getElementById(
+"statusDot"
+).style.background =
+"#18a558";
+
+}
+
+
+function setOfflineStatus(){
+
+document.getElementById(
+"systemStatus"
+).textContent =
+"Offline / Local Prediction";
+
+
+document.getElementById(
+"statusDot"
+).style.background =
+"#e6a700";
+
+}
+
 
 /* ==========================================
-   START SYSTEM
-   ========================================== */
-
-simulateSensorData();
+   MAIN WEATHER LOADER
+========================================== */
 
 
-/* Update every 10 seconds */
+async function loadWeather(){
+
+try{
+
+currentLocation =
+document.getElementById(
+"locationSelect"
+).value;
+
+
+const weather =
+await getRealWeather();
+
+
+/* DISPLAY */
+
+displayWeather(
+weather
+);
+
+
+displayForecast(
+weather.hourly
+);
+
+
+/* SAVE LAST WEATHER */
+
+localStorage.setItem(
+"lastWeather",
+JSON.stringify(
+weather
+)
+);
+
+
+/* AI BACKEND */
+
+try{
+
+const result =
+await getAIPrediction(
+weather
+);
+
+
+displayRisk(
+result
+);
+
+
+setOnlineStatus();
+
+}
+
+catch(error){
+
+console.log(
+"Backend unavailable:",
+error
+);
+
+
+const result =
+calculateOfflineRisk(
+weather
+);
+
+
+displayRisk(
+result
+);
+
+
+setOfflineStatus();
+
+}
+
+}
+
+catch(error){
+
+console.log(
+"Weather API unavailable:",
+error
+);
+
+
+/* ------------------------------------------
+   OFFLINE SAVED WEATHER
+------------------------------------------ */
+
+
+const saved =
+localStorage.getItem(
+"lastWeather"
+);
+
+
+if(saved){
+
+const weather =
+JSON.parse(saved);
+
+
+displayWeather(
+weather
+);
+
+
+if(weather.hourly){
+
+displayForecast(
+weather.hourly
+);
+
+}
+
+
+const result =
+calculateOfflineRisk(
+weather
+);
+
+
+displayRisk(
+result
+);
+
+
+setOfflineStatus();
+
+}
+
+else{
+
+document.getElementById(
+"systemStatus"
+).textContent =
+"Unable to load data";
+
+
+document.getElementById(
+"statusDot"
+).style.background =
+"#c62828";
+
+}
+
+}
+
+}
+
+
+/* ==========================================
+   DEMO MODE
+========================================== */
+
+
+function runDemo(level){
+
+let weather;
+
+
+/*
+These are clearly labelled
+DEMO / TEST values.
+*/
+
+
+if(level==="LOW"){
+
+weather={
+
+rainfall:5,
+
+temperature:29,
+
+humidity:50,
+
+wind:8,
+
+soil:30,
+
+water:1.2,
+
+river:1.7
+
+};
+
+}
+
+
+else if(level==="MODERATE"){
+
+weather={
+
+rainfall:35,
+
+temperature:28,
+
+humidity:74,
+
+wind:12,
+
+soil:60,
+
+water:2.4,
+
+river:2.9
+
+};
+
+}
+
+
+else if(level==="HIGH"){
+
+weather={
+
+rainfall:70,
+
+temperature:27,
+
+humidity:87,
+
+wind:20,
+
+soil:82,
+
+water:3.4,
+
+river:3.9
+
+};
+
+}
+
+
+else{
+
+weather={
+
+rainfall:130,
+
+temperature:26,
+
+humidity:97,
+
+wind:35,
+
+soil:97,
+
+water:5.6,
+
+river:6.2
+
+};
+
+}
+
+
+/* DISPLAY DEMO VALUES */
+
+displayWeather(
+weather
+);
+
+
+/*
+Use backend for demo too.
+If backend unavailable,
+use local calculation.
+*/
+
+
+getAIPrediction(
+weather
+)
+
+.then(result=>{
+
+displayRisk(
+result
+);
+
+setOnlineStatus();
+
+})
+
+.catch(()=>{
+
+let result;
+
+
+if(level==="LOW"){
+
+result={
+risk_score:15,
+risk_level:"LOW",
+warning:
+"Normal monitoring recommended."
+};
+
+}
+
+else if(level==="MODERATE"){
+
+result={
+risk_score:45,
+risk_level:"MODERATE",
+warning:
+"Monitor rainfall and water levels."
+};
+
+}
+
+else if(level==="HIGH"){
+
+result={
+risk_score:70,
+risk_level:"HIGH",
+warning:
+"Flood warning. Prepare emergency response."
+};
+
+}
+
+else{
+
+result={
+risk_score:92,
+risk_level:"CRITICAL",
+warning:
+"Critical flood risk. Immediate emergency preparedness required."
+};
+
+}
+
+
+displayRisk(
+result
+);
+
+setOfflineStatus();
+
+});
+
+}
+
+
+/* ==========================================
+   SERVICE WORKER
+========================================== */
+
+
+if(
+"serviceWorker"
+in navigator
+){
+
+window.addEventListener(
+"load",
+()=>{
+
+navigator.serviceWorker
+.register("./sw.js")
+.then(
+()=>{
+console.log(
+"Service Worker registered"
+);
+}
+)
+.catch(
+error=>{
+console.log(
+"Service Worker error:",
+error
+);
+}
+);
+
+});
+
+}
+
+
+/* ==========================================
+   INITIAL LOAD
+========================================== */
+
+
+displayHistory();
+
+
+loadWeather();
+
+
+/*
+Automatic refresh every 10 minutes
+*/
 
 setInterval(
-    simulateSensorData,
-    10000
+loadWeather,
+10 * 60 * 1000
 );
 
 </script>
 
-
 </body>
-
 </html>
