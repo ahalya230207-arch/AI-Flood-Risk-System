@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -20,12 +21,12 @@ body{
     color:#172033;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 header{
     background:#0b1f33;
     color:white;
-    padding:22px;
+    padding:24px 15px;
     text-align:center;
 }
 
@@ -39,7 +40,7 @@ header p{
     font-size:14px;
 }
 
-/* MAIN */
+/* ================= CONTAINER ================= */
 
 .container{
     max-width:1250px;
@@ -47,23 +48,25 @@ header p{
     padding:20px;
 }
 
-/* TOP BAR */
+/* ================= TOP BAR ================= */
 
 .topbar{
     background:white;
     padding:18px;
     border-radius:12px;
     box-shadow:0 3px 12px rgba(0,0,0,0.08);
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:15px;
     flex-wrap:wrap;
 }
 
 .location-box label{
-    font-weight:bold;
     display:block;
+    font-weight:bold;
     margin-bottom:7px;
 }
 
@@ -72,6 +75,7 @@ select{
     border:1px solid #ccd6e0;
     border-radius:8px;
     font-size:15px;
+    background:white;
 }
 
 button{
@@ -91,7 +95,7 @@ button{
     background:#066985;
 }
 
-/* STATUS */
+/* ================= STATUS ================= */
 
 .status{
     display:flex;
@@ -107,14 +111,14 @@ button{
     border-radius:50%;
 }
 
-/* SECTION */
+/* ================= SECTION ================= */
 
 .section-title{
     margin:25px 0 15px;
     font-size:20px;
 }
 
-/* CARDS */
+/* ================= WEATHER CARDS ================= */
 
 .grid{
     display:grid;
@@ -126,7 +130,9 @@ button{
     background:white;
     border-radius:12px;
     padding:18px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,0.07);
 }
 
 .card-title{
@@ -143,22 +149,26 @@ button{
 .card-unit{
     color:#667788;
     font-size:13px;
+    margin-top:4px;
 }
 
-/* RISK */
+/* ================= RISK ================= */
 
 .risk-card{
     margin-top:20px;
     background:white;
     border-radius:14px;
     padding:25px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.08);
 }
 
 .risk-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:20px;
     flex-wrap:wrap;
 }
@@ -169,10 +179,14 @@ button{
 }
 
 .risk-level{
-    font-size:22px;
+    font-size:16px;
     font-weight:bold;
+
     padding:10px 18px;
+
     border-radius:30px;
+
+    display:inline-block;
 }
 
 .low{
@@ -195,15 +209,23 @@ button{
     color:#b40000;
 }
 
+/* ================= WARNING ================= */
+
 .warning{
     margin-top:15px;
+
     padding:15px;
+
     background:#f3f6f9;
+
     border-radius:9px;
+
     font-size:15px;
+
+    line-height:1.5;
 }
 
-/* PROGRESS */
+/* ================= PROGRESS ================= */
 
 .progress-container{
     margin-top:20px;
@@ -211,31 +233,47 @@ button{
 
 .progress{
     height:18px;
+
     background:#e1e7ed;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .progress-bar{
     height:100%;
+
     width:0%;
-    transition:width .5s ease;
+
+    background:#087ea4;
+
+    transition:
+    width .5s ease;
 }
 
-/* FORECAST */
+/* ================= FORECAST ================= */
 
 .forecast-grid{
     display:grid;
-    grid-template-columns:repeat(6,1fr);
+
+    grid-template-columns:
+    repeat(6,1fr);
+
     gap:12px;
 }
 
 .forecast-card{
     background:white;
+
     padding:15px;
+
     border-radius:10px;
+
     text-align:center;
-    box-shadow:0 3px 10px rgba(0,0,0,0.06);
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,0.06);
 }
 
 .forecast-time{
@@ -252,15 +290,20 @@ button{
 .forecast-rain{
     color:#087ea4;
     font-size:13px;
+    margin-top:4px;
 }
 
-/* DEMO */
+/* ================= DEMO ================= */
 
 .demo-panel{
     margin-top:25px;
+
     background:#102a43;
+
     color:white;
+
     padding:22px;
+
     border-radius:12px;
 }
 
@@ -270,18 +313,25 @@ button{
 
 .demo-panel p{
     color:#c5d8e8;
+
     font-size:14px;
+
     margin-bottom:15px;
+
+    line-height:1.5;
 }
 
 .demo-buttons{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
 }
 
 .demo-buttons button{
     background:white;
+
     color:#102a43;
 }
 
@@ -289,27 +339,42 @@ button{
     background:#dcecf7;
 }
 
-/* HISTORY */
+/* ================= HISTORY ================= */
 
 .history-box{
     background:white;
+
     margin-top:25px;
+
     padding:20px;
+
     border-radius:12px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.07);
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,0.07);
+
     overflow-x:auto;
+}
+
+.history-box h2{
+    margin-bottom:12px;
 }
 
 table{
     width:100%;
+
     border-collapse:collapse;
-    margin-top:12px;
 }
 
-th,td{
+th,
+td{
     padding:11px;
-    border-bottom:1px solid #e3e8ed;
+
+    border-bottom:
+    1px solid #e3e8ed;
+
     text-align:left;
+
     font-size:14px;
 }
 
@@ -317,28 +382,38 @@ th{
     background:#f4f7fa;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
     margin-top:30px;
+
     background:#0b1f33;
+
     color:#c4d5e3;
+
     text-align:center;
+
     padding:20px;
+
     font-size:13px;
+
+    line-height:1.5;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:950px){
 
     .grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .forecast-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:
+        repeat(3,1fr);
     }
+
 }
 
 @media(max-width:600px){
@@ -352,7 +427,9 @@ footer{
     }
 
     .grid{
-        grid-template-columns:1fr 1fr;
+        grid-template-columns:
+        1fr 1fr;
+
         gap:10px;
     }
 
@@ -365,22 +442,31 @@ footer{
     }
 
     .forecast-grid{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:
+        repeat(2,1fr);
     }
 
     .risk-score{
         font-size:38px;
     }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-<h1>🌊 AI-Based Real-Time Flood Risk Detection</h1>
+<h1>
+🌊 AI-Based Real-Time Flood Risk Detection
+</h1>
 
 <p>
 Early Warning System using Weather Data + Machine Learning
@@ -391,20 +477,35 @@ Early Warning System using Weather Data + Machine Learning
 
 <div class="container">
 
-<!-- LOCATION -->
+
+<!-- ================= TOP BAR ================= -->
 
 <div class="topbar">
 
+
 <div class="location-box">
 
-<label>Select Location</label>
+<label>
+Select Location
+</label>
 
 <select id="locationSelect">
 
-<option value="chennai">Chennai</option>
-<option value="trichy">Trichy</option>
-<option value="thanjavur">Thanjavur</option>
-<option value="coimbatore">Coimbatore</option>
+<option value="chennai">
+Chennai
+</option>
+
+<option value="trichy">
+Trichy
+</option>
+
+<option value="thanjavur">
+Thanjavur
+</option>
+
+<option value="coimbatore">
+Coimbatore
+</option>
 
 </select>
 
@@ -413,7 +514,10 @@ Early Warning System using Weather Data + Machine Learning
 
 <div class="status">
 
-<span class="status-dot" id="statusDot"></span>
+<span
+class="status-dot"
+id="statusDot">
+</span>
 
 <span id="systemStatus">
 Connecting...
@@ -422,21 +526,29 @@ Connecting...
 </div>
 
 
-<button class="refresh-btn" onclick="loadWeather()">
+<button
+class="refresh-btn"
+onclick="loadWeather()">
+
 🔄 Refresh
+
 </button>
+
 
 </div>
 
 
-<!-- WEATHER -->
+<!-- ================= ENVIRONMENT ================= -->
 
 <h2 class="section-title">
+
 📊 Current Environmental Conditions
+
 </h2>
 
 
 <div class="grid">
+
 
 <div class="card">
 
@@ -444,8 +556,12 @@ Connecting...
 🌧 Rainfall
 </div>
 
-<div class="card-value" id="rainfall">
+<div
+class="card-value"
+id="rainfall">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -461,8 +577,12 @@ mm
 🌡 Temperature
 </div>
 
-<div class="card-value" id="temperature">
+<div
+class="card-value"
+id="temperature">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -478,8 +598,12 @@ mm
 💧 Humidity
 </div>
 
-<div class="card-value" id="humidity">
+<div
+class="card-value"
+id="humidity">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -495,8 +619,12 @@ mm
 💨 Wind Speed
 </div>
 
-<div class="card-value" id="wind">
+<div
+class="card-value"
+id="wind">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -512,8 +640,12 @@ km/h
 🌱 Soil Moisture
 </div>
 
-<div class="card-value" id="soil">
+<div
+class="card-value"
+id="soil">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -529,8 +661,12 @@ km/h
 🌊 Water Level
 </div>
 
-<div class="card-value" id="water">
+<div
+class="card-value"
+id="water">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -546,8 +682,12 @@ m (prototype estimate)
 🏞 River Level
 </div>
 
-<div class="card-value" id="river">
+<div
+class="card-value"
+id="river">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -563,8 +703,12 @@ m (prototype estimate)
 🕒 Last Updated
 </div>
 
-<div class="card-value" id="updated">
+<div
+class="card-value"
+id="updated">
+
 --
+
 </div>
 
 <div class="card-unit">
@@ -573,19 +717,24 @@ local time
 
 </div>
 
+
 </div>
 
 
-<!-- RISK -->
+<!-- ================= AI RISK ================= -->
 
 <h2 class="section-title">
+
 🤖 AI Flood Risk Assessment
+
 </h2>
 
 
 <div class="risk-card">
 
+
 <div class="risk-header">
+
 
 <div>
 
@@ -593,16 +742,25 @@ local time
 AI RISK SCORE
 </div>
 
-<div class="risk-score" id="riskScore">
+<div
+class="risk-score"
+id="riskScore">
+
 --
-</div>
 
 </div>
 
+</div>
 
-<div id="riskLevel" class="risk-level low">
+
+<div
+id="riskLevel"
+class="risk-level low">
+
 WAITING
+
 </div>
+
 
 </div>
 
@@ -621,19 +779,24 @@ class="progress-bar">
 </div>
 
 
-<div class="warning" id="warningText">
+<div
+class="warning"
+id="warningText">
 
 Waiting for environmental data...
 
 </div>
 
+
 </div>
 
 
-<!-- FORECAST -->
+<!-- ================= FORECAST ================= -->
 
 <h2 class="section-title">
+
 ⏱ Next 6 Hours Forecast
+
 </h2>
 
 
@@ -644,83 +807,128 @@ id="forecastGrid">
 </div>
 
 
-<!-- DEMO MODE -->
+<!-- ================= DEMO MODE ================= -->
 
 <div class="demo-panel">
+
 
 <h2>
 🧪 Demo / Test Mode
 </h2>
 
+
 <p>
-Use these buttons only for project demonstration.
-They simulate environmental conditions so all four AI risk levels can be displayed.
-Real weather mode remains connected to Open-Meteo and the backend model.
+
+These buttons simulate different environmental
+conditions for project demonstration.
+They are not real emergency readings.
+
 </p>
 
 
 <div class="demo-buttons">
 
-<button onclick="runDemo('LOW')">
-LOW
+
+<button
+onclick="runDemo('LOW')">
+
+🟢 LOW
+
 </button>
 
-<button onclick="runDemo('MODERATE')">
-MODERATE
+
+<button
+onclick="runDemo('MODERATE')">
+
+🟡 MODERATE
+
 </button>
 
-<button onclick="runDemo('HIGH')">
-HIGH
+
+<button
+onclick="runDemo('HIGH')">
+
+🟠 HIGH
+
 </button>
 
-<button onclick="runDemo('CRITICAL')">
-CRITICAL
+
+<button
+onclick="runDemo('CRITICAL')">
+
+🔴 CRITICAL
+
 </button>
 
-<button onclick="loadWeather()">
-🌐 Return to Real Weather
+
+<button
+onclick="loadWeather()">
+
+🌐 Real Weather
+
 </button>
+
 
 </div>
 
+
 </div>
 
 
-<!-- HISTORY -->
+<!-- ================= HISTORY ================= -->
 
 <div class="history-box">
 
+
 <h2>
-📋 Screening / Prediction History
+📋 Prediction History
 </h2>
 
+
 <table>
+
 
 <thead>
 
 <tr>
 
-<th>Time</th>
-<th>Location</th>
-<th>Risk Score</th>
-<th>Risk Level</th>
+<th>
+Time
+</th>
+
+<th>
+Location
+</th>
+
+<th>
+Risk Score
+</th>
+
+<th>
+Risk Level
+</th>
 
 </tr>
 
 </thead>
 
 
-<tbody id="historyBody">
+<tbody
+id="historyBody">
 
 </tbody>
 
+
 </table>
 
-</div>
-
 
 </div>
 
+
+</div>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -735,14 +943,18 @@ Prototype Project | AI + Weather Data + Machine Learning
 
 <script>
 
-/* ==========================================
-   CONFIGURATION
-========================================== */
 
+/* =====================================================
+   RENDER BACKEND
+===================================================== */
 
 const API_URL =
 "https://ai-flood-risk-backend-1zrs.onrender.com/predict";
 
+
+/* =====================================================
+   LOCATIONS
+===================================================== */
 
 const locations = {
 
@@ -774,29 +986,31 @@ longitude:76.9558
 
 
 let currentLocation =
-document.getElementById("locationSelect").value;
+"chennai";
 
 
-/* ==========================================
+/* =====================================================
    LOCATION CHANGE
-========================================== */
-
+===================================================== */
 
 document
 .getElementById("locationSelect")
-.addEventListener("change",function(){
+.addEventListener(
+"change",
+function(){
 
-currentLocation=this.value;
+currentLocation =
+this.value;
 
 loadWeather();
 
-});
+}
+);
 
 
-/* ==========================================
-   REAL WEATHER
-========================================== */
-
+/* =====================================================
+   GET REAL WEATHER
+===================================================== */
 
 async function getRealWeather(){
 
@@ -853,35 +1067,41 @@ const current =
 data.current;
 
 
-/* ------------------------------------------
+/* =====================================================
    WEATHER VALUES
------------------------------------------- */
-
+===================================================== */
 
 const rainfall =
-Number(current.precipitation || 0);
+Number(
+current.precipitation || 0
+);
 
 
 const temperature =
-Number(current.temperature_2m || 0);
+Number(
+current.temperature_2m || 0
+);
 
 
 const humidity =
-Number(current.relative_humidity_2m || 0);
+Number(
+current.relative_humidity_2m || 0
+);
 
 
 const wind =
-Number(current.wind_speed_10m || 0);
+Number(
+current.wind_speed_10m || 0
+);
 
 
 const soilRaw =
-Number(current.soil_moisture_0_to_1cm || 0);
+Number(
+current.soil_moisture_0_to_1cm || 0
+);
 
 
-/*
-Convert soil moisture approximately
-to percentage for prototype display.
-*/
+/* SOIL MOISTURE */
 
 const soil =
 Math.max(
@@ -893,42 +1113,50 @@ soilRaw * 100
 );
 
 
-/* ------------------------------------------
-   PROTOTYPE WATER LEVEL
------------------------------------------- */
-
+/* =====================================================
+   WATER LEVEL
+   PROTOTYPE ESTIMATE
+===================================================== */
 
 const water =
 Math.max(
 1.0,
 Math.min(
 6.5,
+
 1.0 +
+
 rainfall * 0.08 +
+
 Math.max(
 0,
 humidity - 60
 ) * 0.01
+
 )
 );
 
 
-/* ------------------------------------------
-   PROTOTYPE RIVER LEVEL
------------------------------------------- */
-
+/* =====================================================
+   RIVER LEVEL
+   PROTOTYPE ESTIMATE
+===================================================== */
 
 const river =
 Math.max(
 1.5,
 Math.min(
 7.0,
+
 1.5 +
+
 rainfall * 0.07 +
+
 Math.max(
 0,
 humidity - 60
 ) * 0.012
+
 )
 );
 
@@ -942,7 +1170,6 @@ wind,
 soil,
 water,
 river,
-
 hourly:data.hourly
 
 };
@@ -950,10 +1177,9 @@ hourly:data.hourly
 }
 
 
-/* ==========================================
+/* =====================================================
    DISPLAY WEATHER
-========================================== */
-
+===================================================== */
 
 function displayWeather(weather){
 
@@ -1007,10 +1233,9 @@ new Date().toLocaleTimeString();
 }
 
 
-/* ==========================================
-   FORECAST
-========================================== */
-
+/* =====================================================
+   DISPLAY FORECAST
+===================================================== */
 
 function displayForecast(hourly){
 
@@ -1020,19 +1245,18 @@ document.getElementById(
 );
 
 
-container.innerHTML="";
+container.innerHTML =
+"";
 
 
 if(!hourly){
-
 return;
-
 }
 
 
 for(
-let i=0;
-i<6;
+let i = 0;
+i < 6;
 i++
 ){
 
@@ -1052,8 +1276,10 @@ hourly.precipitation[i];
 
 const probability =
 hourly.precipitation_probability
-? hourly.precipitation_probability[i]
-: 0;
+?
+hourly.precipitation_probability[i]
+:
+0;
 
 
 const card =
@@ -1080,6 +1306,7 @@ minute:"2-digit"
 
 </div>
 
+
 <div class="forecast-temp">
 
 ${Number(
@@ -1088,17 +1315,21 @@ temperature
 
 </div>
 
+
 <div class="forecast-rain">
 
-Rain: ${Number(
+Rain:
+${Number(
 rain
 ).toFixed(1)} mm
 
 </div>
 
+
 <div class="forecast-rain">
 
-Probability: ${Number(
+Probability:
+${Number(
 probability
 ).toFixed(0)}%
 
@@ -1107,17 +1338,18 @@ probability
 `;
 
 
-container.appendChild(card);
+container.appendChild(
+card
+);
 
 }
 
 }
 
 
-/* ==========================================
-   BACKEND AI PREDICTION
-========================================== */
-
+/* =====================================================
+   AI BACKEND PREDICTION
+===================================================== */
 
 async function getAIPrediction(weather){
 
@@ -1152,7 +1384,8 @@ weather.humidity
 
 })
 
-});
+}
+);
 
 
 if(!response.ok){
@@ -1169,10 +1402,9 @@ return await response.json();
 }
 
 
-/* ==========================================
+/* =====================================================
    OFFLINE RISK CALCULATION
-========================================== */
-
+===================================================== */
 
 function calculateOfflineRisk(weather){
 
@@ -1230,7 +1462,9 @@ score
 
 
 score =
-Math.round(score);
+Math.round(
+score
+);
 
 
 let level;
@@ -1239,36 +1473,40 @@ let warning;
 
 if(score < 30){
 
-level="LOW";
+level =
+"LOW";
 
-warning=
+warning =
 "Normal monitoring recommended.";
 
 }
 
 else if(score < 60){
 
-level="MODERATE";
+level =
+"MODERATE";
 
-warning=
+warning =
 "Monitor rainfall and water levels.";
 
 }
 
 else if(score < 80){
 
-level="HIGH";
+level =
+"HIGH";
 
-warning=
+warning =
 "Flood warning. Prepare emergency response.";
 
 }
 
 else{
 
-level="CRITICAL";
+level =
+"CRITICAL";
 
-warning=
+warning =
 "Critical flood risk. Immediate emergency preparedness required.";
 
 }
@@ -1276,26 +1514,30 @@ warning=
 
 return{
 
-risk_score:score,
+risk_score:
+score,
 
-risk_level:level,
+risk_level:
+level,
 
-warning:warning
+warning:
+warning
 
 };
 
 }
 
 
-/* ==========================================
-   SHOW RISK
-========================================== */
-
+/* =====================================================
+   DISPLAY RISK
+===================================================== */
 
 function displayRisk(result){
 
 const score =
-Number(result.risk_score);
+Number(
+result.risk_score
+);
 
 
 const level =
@@ -1322,7 +1564,7 @@ levelBox.className =
 "risk-level";
 
 
-if(level==="LOW"){
+if(level === "LOW"){
 
 levelBox.classList.add(
 "low"
@@ -1330,7 +1572,7 @@ levelBox.classList.add(
 
 }
 
-else if(level==="MODERATE"){
+else if(level === "MODERATE"){
 
 levelBox.classList.add(
 "moderate"
@@ -1338,7 +1580,7 @@ levelBox.classList.add(
 
 }
 
-else if(level==="HIGH"){
+else if(level === "HIGH"){
 
 levelBox.classList.add(
 "high"
@@ -1367,8 +1609,6 @@ document.getElementById(
 result.warning;
 
 
-/* SAVE */
-
 saveHistory(
 score,
 level
@@ -1377,10 +1617,9 @@ level
 }
 
 
-/* ==========================================
-   HISTORY
-========================================== */
-
+/* =====================================================
+   SAVE HISTORY
+===================================================== */
 
 function saveHistory(
 score,
@@ -1407,16 +1646,16 @@ new Date().toLocaleString(),
 location:
 location.name,
 
-score:score,
+score:
+score,
 
-level:level
+level:
+level
 
 });
 
 
-/*
-Keep only latest 20
-*/
+/* KEEP LAST 20 */
 
 history.splice(
 20
@@ -1436,10 +1675,9 @@ displayHistory();
 }
 
 
-/* ==========================================
+/* =====================================================
    DISPLAY HISTORY
-========================================== */
-
+===================================================== */
 
 function displayHistory(){
 
@@ -1449,7 +1687,8 @@ document.getElementById(
 );
 
 
-body.innerHTML="";
+body.innerHTML =
+"";
 
 
 const history =
@@ -1460,7 +1699,7 @@ localStorage.getItem(
 );
 
 
-if(history.length===0){
+if(history.length === 0){
 
 body.innerHTML = `
 
@@ -1481,33 +1720,52 @@ return;
 }
 
 
-history.forEach(item=>{
+history.forEach(
+item => {
 
-let className="";
+let className =
+"low";
 
 
-if(item.level==="LOW")
-className="low";
+if(item.level === "MODERATE"){
 
-else if(item.level==="MODERATE")
-className="moderate";
+className =
+"moderate";
 
-else if(item.level==="HIGH")
-className="high";
+}
 
-else
-className="critical";
+
+if(item.level === "HIGH"){
+
+className =
+"high";
+
+}
+
+
+if(item.level === "CRITICAL"){
+
+className =
+"critical";
+
+}
 
 
 body.innerHTML += `
 
 <tr>
 
-<td>${item.time}</td>
+<td>
+${item.time}
+</td>
 
-<td>${item.location}</td>
+<td>
+${item.location}
+</td>
 
-<td>${item.score}</td>
+<td>
+${item.score}
+</td>
 
 <td>
 
@@ -1528,10 +1786,9 @@ ${item.level}
 }
 
 
-/* ==========================================
-   SYSTEM STATUS
-========================================== */
-
+/* =====================================================
+   ONLINE STATUS
+===================================================== */
 
 function setOnlineStatus(){
 
@@ -1549,6 +1806,10 @@ document.getElementById(
 }
 
 
+/* =====================================================
+   OFFLINE STATUS
+===================================================== */
+
 function setOfflineStatus(){
 
 document.getElementById(
@@ -1565,10 +1826,9 @@ document.getElementById(
 }
 
 
-/* ==========================================
+/* =====================================================
    MAIN WEATHER LOADER
-========================================== */
-
+===================================================== */
 
 async function loadWeather(){
 
@@ -1580,23 +1840,27 @@ document.getElementById(
 ).value;
 
 
+/* GET WEATHER */
+
 const weather =
 await getRealWeather();
 
 
-/* DISPLAY */
+/* DISPLAY WEATHER */
 
 displayWeather(
 weather
 );
 
 
+/* DISPLAY FORECAST */
+
 displayForecast(
 weather.hourly
 );
 
 
-/* SAVE LAST WEATHER */
+/* SAVE WEATHER */
 
 localStorage.setItem(
 "lastWeather",
@@ -1606,7 +1870,9 @@ weather
 );
 
 
-/* AI BACKEND */
+/* ==============================================
+   SEND DATA TO AI BACKEND
+============================================== */
 
 try{
 
@@ -1633,6 +1899,8 @@ error
 );
 
 
+/* LOCAL FALLBACK */
+
 const result =
 calculateOfflineRisk(
 weather
@@ -1658,10 +1926,9 @@ error
 );
 
 
-/* ------------------------------------------
-   OFFLINE SAVED WEATHER
------------------------------------------- */
-
+/* ==============================================
+   USE LAST SAVED WEATHER
+============================================== */
 
 const saved =
 localStorage.getItem(
@@ -1672,7 +1939,9 @@ localStorage.getItem(
 if(saved){
 
 const weather =
-JSON.parse(saved);
+JSON.parse(
+saved
+);
 
 
 displayWeather(
@@ -1724,25 +1993,20 @@ document.getElementById(
 }
 
 
-/* ==========================================
+/* =====================================================
    DEMO MODE
-========================================== */
+===================================================== */
 
-
-function runDemo(level){
+async function runDemo(level){
 
 let weather;
 
 
-/*
-These are clearly labelled
-DEMO / TEST values.
-*/
+/* ================= LOW ================= */
 
+if(level === "LOW"){
 
-if(level==="LOW"){
-
-weather={
+weather = {
 
 rainfall:5,
 
@@ -1763,9 +2027,11 @@ river:1.7
 }
 
 
-else if(level==="MODERATE"){
+/* ================= MODERATE ================= */
 
-weather={
+else if(level === "MODERATE"){
+
+weather = {
 
 rainfall:35,
 
@@ -1786,9 +2052,11 @@ river:2.9
 }
 
 
-else if(level==="HIGH"){
+/* ================= HIGH ================= */
 
-weather={
+else if(level === "HIGH"){
+
+weather = {
 
 rainfall:70,
 
@@ -1809,9 +2077,11 @@ river:3.9
 }
 
 
+/* ================= CRITICAL ================= */
+
 else{
 
-weather={
+weather = {
 
 rainfall:130,
 
@@ -1832,79 +2102,102 @@ river:6.2
 }
 
 
-/* DISPLAY DEMO VALUES */
+/* DISPLAY DEMO WEATHER */
 
 displayWeather(
 weather
 );
 
 
-/*
-Use backend for demo too.
-If backend unavailable,
-use local calculation.
-*/
+/* ==============================================
+   SEND DEMO DATA TO AI BACKEND
+============================================== */
 
+try{
 
-getAIPrediction(
+const result =
+await getAIPrediction(
 weather
-)
+);
 
-.then(result=>{
 
 displayRisk(
 result
 );
 
+
 setOnlineStatus();
 
-})
+}
 
-.catch(()=>{
+catch(error){
+
+console.log(
+"Demo backend unavailable"
+);
+
+
+/* FALLBACK DEMO RESULT */
 
 let result;
 
 
-if(level==="LOW"){
+if(level === "LOW"){
 
-result={
+result = {
+
 risk_score:15,
+
 risk_level:"LOW",
+
 warning:
 "Normal monitoring recommended."
+
 };
 
 }
 
-else if(level==="MODERATE"){
+else if(level === "MODERATE"){
 
-result={
+result = {
+
 risk_score:45,
+
 risk_level:"MODERATE",
+
 warning:
 "Monitor rainfall and water levels."
+
 };
 
 }
 
-else if(level==="HIGH"){
+else if(level === "HIGH"){
 
-result={
+result = {
+
 risk_score:70,
+
 risk_level:"HIGH",
+
 warning:
 "Flood warning. Prepare emergency response."
+
 };
 
 }
 
 else{
 
-result={
+result = {
+
 risk_score:92,
+
 risk_level:"CRITICAL",
+
 warning:
 "Critical flood risk. Immediate emergency preparedness required."
+
 };
 
 }
@@ -1914,69 +2207,33 @@ displayRisk(
 result
 );
 
+
 setOfflineStatus();
 
-});
+}
 
 }
 
 
-/* ==========================================
-   SERVICE WORKER
-========================================== */
-
-
-if(
-"serviceWorker"
-in navigator
-){
-
-window.addEventListener(
-"load",
-()=>{
-
-navigator.serviceWorker
-.register("./sw.js")
-.then(
-()=>{
-console.log(
-"Service Worker registered"
-);
-}
-)
-.catch(
-error=>{
-console.log(
-"Service Worker error:",
-error
-);
-}
-);
-
-});
-
-}
-
-
-/* ==========================================
+/* =====================================================
    INITIAL LOAD
-========================================== */
-
+===================================================== */
 
 displayHistory();
-
 
 loadWeather();
 
 
-/*
-Automatic refresh every 10 minutes
-*/
+/* =====================================================
+   AUTO REFRESH
+   EVERY 10 MINUTES
+===================================================== */
 
 setInterval(
 loadWeather,
 10 * 60 * 1000
 );
+
 
 </script>
 
