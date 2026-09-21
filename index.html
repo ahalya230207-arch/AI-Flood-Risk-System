@@ -21,12 +21,12 @@ body{
     color:#172033;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
 header{
     background:#0b1f33;
     color:white;
-    padding:24px 15px;
+    padding:22px;
     text-align:center;
 }
 
@@ -40,7 +40,7 @@ header p{
     font-size:14px;
 }
 
-/* ================= CONTAINER ================= */
+/* MAIN */
 
 .container{
     max-width:1250px;
@@ -48,7 +48,7 @@ header p{
     padding:20px;
 }
 
-/* ================= TOP BAR ================= */
+/* TOP BAR */
 
 .topbar{
     background:white;
@@ -65,8 +65,8 @@ header p{
 }
 
 .location-box label{
-    display:block;
     font-weight:bold;
+    display:block;
     margin-bottom:7px;
 }
 
@@ -75,7 +75,6 @@ select{
     border:1px solid #ccd6e0;
     border-radius:8px;
     font-size:15px;
-    background:white;
 }
 
 button{
@@ -95,7 +94,7 @@ button{
     background:#066985;
 }
 
-/* ================= STATUS ================= */
+/* STATUS */
 
 .status{
     display:flex;
@@ -111,14 +110,14 @@ button{
     border-radius:50%;
 }
 
-/* ================= SECTION ================= */
+/* SECTION */
 
 .section-title{
     margin:25px 0 15px;
     font-size:20px;
 }
 
-/* ================= WEATHER CARDS ================= */
+/* WEATHER GRID */
 
 .grid{
     display:grid;
@@ -130,9 +129,7 @@ button{
     background:white;
     border-radius:12px;
     padding:18px;
-
-    box-shadow:
-    0 3px 12px rgba(0,0,0,0.07);
+    box-shadow:0 3px 12px rgba(0,0,0,0.07);
 }
 
 .card-title{
@@ -149,26 +146,22 @@ button{
 .card-unit{
     color:#667788;
     font-size:13px;
-    margin-top:4px;
 }
 
-/* ================= RISK ================= */
+/* RISK */
 
 .risk-card{
     margin-top:20px;
     background:white;
     border-radius:14px;
     padding:25px;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,0.08);
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 .risk-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     gap:20px;
     flex-wrap:wrap;
 }
@@ -181,11 +174,8 @@ button{
 .risk-level{
     font-size:16px;
     font-weight:bold;
-
     padding:10px 18px;
-
     border-radius:30px;
-
     display:inline-block;
 }
 
@@ -209,23 +199,15 @@ button{
     color:#b40000;
 }
 
-/* ================= WARNING ================= */
-
 .warning{
     margin-top:15px;
-
     padding:15px;
-
     background:#f3f6f9;
-
     border-radius:9px;
-
     font-size:15px;
-
-    line-height:1.5;
 }
 
-/* ================= PROGRESS ================= */
+/* PROGRESS */
 
 .progress-container{
     margin-top:20px;
@@ -233,47 +215,32 @@ button{
 
 .progress{
     height:18px;
-
     background:#e1e7ed;
-
     border-radius:20px;
-
     overflow:hidden;
 }
 
 .progress-bar{
     height:100%;
-
     width:0%;
-
     background:#087ea4;
-
-    transition:
-    width .5s ease;
+    transition:width .5s ease;
 }
 
-/* ================= FORECAST ================= */
+/* FORECAST */
 
 .forecast-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(6,1fr);
-
+    grid-template-columns:repeat(6,1fr);
     gap:12px;
 }
 
 .forecast-card{
     background:white;
-
     padding:15px;
-
     border-radius:10px;
-
     text-align:center;
-
-    box-shadow:
-    0 3px 10px rgba(0,0,0,0.06);
+    box-shadow:0 3px 10px rgba(0,0,0,0.06);
 }
 
 .forecast-time{
@@ -293,17 +260,13 @@ button{
     margin-top:4px;
 }
 
-/* ================= DEMO ================= */
+/* DEMO */
 
 .demo-panel{
     margin-top:25px;
-
     background:#102a43;
-
     color:white;
-
     padding:22px;
-
     border-radius:12px;
 }
 
@@ -313,25 +276,19 @@ button{
 
 .demo-panel p{
     color:#c5d8e8;
-
     font-size:14px;
-
     margin-bottom:15px;
-
     line-height:1.5;
 }
 
 .demo-buttons{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:10px;
 }
 
 .demo-buttons button{
     background:white;
-
     color:#102a43;
 }
 
@@ -339,42 +296,30 @@ button{
     background:#dcecf7;
 }
 
-/* ================= HISTORY ================= */
+/* HISTORY */
 
 .history-box{
     background:white;
-
     margin-top:25px;
-
     padding:20px;
-
     border-radius:12px;
-
-    box-shadow:
-    0 3px 12px rgba(0,0,0,0.07);
-
+    box-shadow:0 3px 12px rgba(0,0,0,0.07);
     overflow-x:auto;
 }
 
 .history-box h2{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 table{
     width:100%;
-
     border-collapse:collapse;
 }
 
-th,
-td{
+th,td{
     padding:11px;
-
-    border-bottom:
-    1px solid #e3e8ed;
-
+    border-bottom:1px solid #e3e8ed;
     text-align:left;
-
     font-size:14px;
 }
 
@@ -382,36 +327,27 @@ th{
     background:#f4f7fa;
 }
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
 footer{
     margin-top:30px;
-
     background:#0b1f33;
-
     color:#c4d5e3;
-
     text-align:center;
-
     padding:20px;
-
     font-size:13px;
-
-    line-height:1.5;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 
 @media(max-width:950px){
 
     .grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .forecast-grid{
-        grid-template-columns:
-        repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
     }
 
 }
@@ -427,9 +363,7 @@ footer{
     }
 
     .grid{
-        grid-template-columns:
-        1fr 1fr;
-
+        grid-template-columns:1fr 1fr;
         gap:10px;
     }
 
@@ -442,8 +376,7 @@ footer{
     }
 
     .forecast-grid{
-        grid-template-columns:
-        repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .risk-score{
@@ -453,14 +386,11 @@ footer{
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -469,7 +399,7 @@ footer{
 </h1>
 
 <p>
-Early Warning System using Weather Data + Machine Learning
+Early Warning System using Real Weather Data + Machine Learning
 </p>
 
 </header>
@@ -478,16 +408,13 @@ Early Warning System using Weather Data + Machine Learning
 <div class="container">
 
 
-<!-- ================= TOP BAR ================= -->
+<!-- LOCATION -->
 
 <div class="topbar">
 
-
 <div class="location-box">
 
-<label>
-Select Location
-</label>
+<label>Select Location</label>
 
 <select id="locationSelect">
 
@@ -534,11 +461,10 @@ onclick="loadWeather()">
 
 </button>
 
-
 </div>
 
 
-<!-- ================= ENVIRONMENT ================= -->
+<!-- CURRENT WEATHER -->
 
 <h2 class="section-title">
 
@@ -670,7 +596,7 @@ id="water">
 </div>
 
 <div class="card-unit">
-m (prototype estimate)
+m - prototype estimate
 </div>
 
 </div>
@@ -691,7 +617,7 @@ id="river">
 </div>
 
 <div class="card-unit">
-m (prototype estimate)
+m - prototype estimate
 </div>
 
 </div>
@@ -721,7 +647,7 @@ local time
 </div>
 
 
-<!-- ================= AI RISK ================= -->
+<!-- AI RISK -->
 
 <h2 class="section-title">
 
@@ -739,7 +665,9 @@ local time
 <div>
 
 <div class="card-title">
+
 AI RISK SCORE
+
 </div>
 
 <div
@@ -783,7 +711,7 @@ class="progress-bar">
 class="warning"
 id="warningText">
 
-Waiting for environmental data...
+Waiting for real weather data...
 
 </div>
 
@@ -791,7 +719,7 @@ Waiting for environmental data...
 </div>
 
 
-<!-- ================= FORECAST ================= -->
+<!-- FORECAST -->
 
 <h2 class="section-title">
 
@@ -807,21 +735,19 @@ id="forecastGrid">
 </div>
 
 
-<!-- ================= DEMO MODE ================= -->
+<!-- DEMO -->
 
 <div class="demo-panel">
-
 
 <h2>
 🧪 Demo / Test Mode
 </h2>
 
-
 <p>
 
-These buttons simulate different environmental
-conditions for project demonstration.
-They are not real emergency readings.
+These buttons simulate different environmental conditions
+for project demonstration. They do not represent current
+real-world flood conditions.
 
 </p>
 
@@ -871,11 +797,10 @@ onclick="loadWeather()">
 
 </div>
 
-
 </div>
 
 
-<!-- ================= HISTORY ================= -->
+<!-- HISTORY -->
 
 <div class="history-box">
 
@@ -886,7 +811,6 @@ onclick="loadWeather()">
 
 
 <table>
-
 
 <thead>
 
@@ -928,15 +852,13 @@ id="historyBody">
 </div>
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
 
 AI-Based Real-Time Flood Risk Detection & Early Warning System
 
 <br><br>
 
-Prototype Project | AI + Weather Data + Machine Learning
+Prototype Project | AI + Real Weather Data + Machine Learning
 
 </footer>
 
@@ -944,17 +866,17 @@ Prototype Project | AI + Weather Data + Machine Learning
 <script>
 
 
-/* =====================================================
+/* ==========================================
    RENDER BACKEND
-===================================================== */
+========================================== */
 
 const API_URL =
 "https://ai-flood-risk-backend-1zrs.onrender.com/predict";
 
 
-/* =====================================================
+/* ==========================================
    LOCATIONS
-===================================================== */
+========================================== */
 
 const locations = {
 
@@ -985,13 +907,12 @@ longitude:76.9558
 };
 
 
-let currentLocation =
-"chennai";
+let currentLocation = "chennai";
 
 
-/* =====================================================
+/* ==========================================
    LOCATION CHANGE
-===================================================== */
+========================================== */
 
 document
 .getElementById("locationSelect")
@@ -1004,13 +925,12 @@ this.value;
 
 loadWeather();
 
-}
-);
+});
 
 
-/* =====================================================
+/* ==========================================
    GET REAL WEATHER
-===================================================== */
+========================================== */
 
 async function getRealWeather(){
 
@@ -1028,6 +948,7 @@ location.latitude +
 location.longitude +
 
 "&current=" +
+
 "temperature_2m," +
 "relative_humidity_2m," +
 "precipitation," +
@@ -1035,6 +956,7 @@ location.longitude +
 "soil_moisture_0_to_1cm" +
 
 "&hourly=" +
+
 "temperature_2m," +
 "relative_humidity_2m," +
 "precipitation," +
@@ -1067,9 +989,9 @@ const current =
 data.current;
 
 
-/* =====================================================
-   WEATHER VALUES
-===================================================== */
+/* ==========================================
+   REAL VALUES
+========================================== */
 
 const rainfall =
 Number(
@@ -1101,7 +1023,10 @@ current.soil_moisture_0_to_1cm || 0
 );
 
 
-/* SOIL MOISTURE */
+/*
+Open-Meteo soil moisture is
+converted to percentage for display.
+*/
 
 const soil =
 Math.max(
@@ -1113,10 +1038,10 @@ soilRaw * 100
 );
 
 
-/* =====================================================
+/* ==========================================
    WATER LEVEL
    PROTOTYPE ESTIMATE
-===================================================== */
+========================================== */
 
 const water =
 Math.max(
@@ -1137,10 +1062,10 @@ humidity - 60
 );
 
 
-/* =====================================================
+/* ==========================================
    RIVER LEVEL
    PROTOTYPE ESTIMATE
-===================================================== */
+========================================== */
 
 const river =
 Math.max(
@@ -1177,9 +1102,9 @@ hourly:data.hourly
 }
 
 
-/* =====================================================
+/* ==========================================
    DISPLAY WEATHER
-===================================================== */
+========================================== */
 
 function displayWeather(weather){
 
@@ -1233,9 +1158,9 @@ new Date().toLocaleTimeString();
 }
 
 
-/* =====================================================
-   DISPLAY FORECAST
-===================================================== */
+/* ==========================================
+   FORECAST
+========================================== */
 
 function displayForecast(hourly){
 
@@ -1245,18 +1170,19 @@ document.getElementById(
 );
 
 
-container.innerHTML =
-"";
+container.innerHTML = "";
 
 
 if(!hourly){
+
 return;
+
 }
 
 
 for(
-let i = 0;
-i < 6;
+let i=0;
+i<6;
 i++
 ){
 
@@ -1306,7 +1232,6 @@ minute:"2-digit"
 
 </div>
 
-
 <div class="forecast-temp">
 
 ${Number(
@@ -1315,16 +1240,15 @@ temperature
 
 </div>
 
-
 <div class="forecast-rain">
 
 Rain:
 ${Number(
 rain
-).toFixed(1)} mm
+).toFixed(1)}
+mm
 
 </div>
-
 
 <div class="forecast-rain">
 
@@ -1347,9 +1271,9 @@ card
 }
 
 
-/* =====================================================
-   AI BACKEND PREDICTION
-===================================================== */
+/* ==========================================
+   SEND WEATHER TO AI BACKEND
+========================================== */
 
 async function getAIPrediction(weather){
 
@@ -1384,14 +1308,13 @@ weather.humidity
 
 })
 
-}
-);
+});
 
 
 if(!response.ok){
 
 throw new Error(
-"Backend prediction failed"
+"AI backend prediction failed"
 );
 
 }
@@ -1402,9 +1325,9 @@ return await response.json();
 }
 
 
-/* =====================================================
-   OFFLINE RISK CALCULATION
-===================================================== */
+/* ==========================================
+   OFFLINE FALLBACK
+========================================== */
 
 function calculateOfflineRisk(weather){
 
@@ -1462,9 +1385,7 @@ score
 
 
 score =
-Math.round(
-score
-);
+Math.round(score);
 
 
 let level;
@@ -1473,8 +1394,7 @@ let warning;
 
 if(score < 30){
 
-level =
-"LOW";
+level = "LOW";
 
 warning =
 "Normal monitoring recommended.";
@@ -1483,8 +1403,7 @@ warning =
 
 else if(score < 60){
 
-level =
-"MODERATE";
+level = "MODERATE";
 
 warning =
 "Monitor rainfall and water levels.";
@@ -1493,8 +1412,7 @@ warning =
 
 else if(score < 80){
 
-level =
-"HIGH";
+level = "HIGH";
 
 warning =
 "Flood warning. Prepare emergency response.";
@@ -1503,8 +1421,7 @@ warning =
 
 else{
 
-level =
-"CRITICAL";
+level = "CRITICAL";
 
 warning =
 "Critical flood risk. Immediate emergency preparedness required.";
@@ -1514,23 +1431,20 @@ warning =
 
 return{
 
-risk_score:
-score,
+risk_score:score,
 
-risk_level:
-level,
+risk_level:level,
 
-warning:
-warning
+warning:warning
 
 };
 
 }
 
 
-/* =====================================================
+/* ==========================================
    DISPLAY RISK
-===================================================== */
+========================================== */
 
 function displayRisk(result){
 
@@ -1609,6 +1523,8 @@ document.getElementById(
 result.warning;
 
 
+/* SAVE HISTORY */
+
 saveHistory(
 score,
 level
@@ -1617,9 +1533,9 @@ level
 }
 
 
-/* =====================================================
-   SAVE HISTORY
-===================================================== */
+/* ==========================================
+   HISTORY
+========================================== */
 
 function saveHistory(
 score,
@@ -1655,7 +1571,7 @@ level
 });
 
 
-/* KEEP LAST 20 */
+/* Keep latest 20 */
 
 history.splice(
 20
@@ -1675,9 +1591,9 @@ displayHistory();
 }
 
 
-/* =====================================================
+/* ==========================================
    DISPLAY HISTORY
-===================================================== */
+========================================== */
 
 function displayHistory(){
 
@@ -1687,8 +1603,7 @@ document.getElementById(
 );
 
 
-body.innerHTML =
-"";
+body.innerHTML = "";
 
 
 const history =
@@ -1723,11 +1638,15 @@ return;
 history.forEach(
 item => {
 
+
 let className =
 "low";
 
 
-if(item.level === "MODERATE"){
+if(
+item.level ===
+"MODERATE"
+){
 
 className =
 "moderate";
@@ -1735,7 +1654,10 @@ className =
 }
 
 
-if(item.level === "HIGH"){
+if(
+item.level ===
+"HIGH"
+){
 
 className =
 "high";
@@ -1743,7 +1665,10 @@ className =
 }
 
 
-if(item.level === "CRITICAL"){
+if(
+item.level ===
+"CRITICAL"
+){
 
 className =
 "critical";
@@ -1769,7 +1694,8 @@ ${item.score}
 
 <td>
 
-<span class="risk-level ${className}">
+<span
+class="risk-level ${className}">
 
 ${item.level}
 
@@ -1786,16 +1712,16 @@ ${item.level}
 }
 
 
-/* =====================================================
-   ONLINE STATUS
-===================================================== */
+/* ==========================================
+   STATUS
+========================================== */
 
 function setOnlineStatus(){
 
 document.getElementById(
 "systemStatus"
 ).textContent =
-"AI Backend Online";
+"Real Weather + AI Backend Online";
 
 
 document.getElementById(
@@ -1805,10 +1731,6 @@ document.getElementById(
 
 }
 
-
-/* =====================================================
-   OFFLINE STATUS
-===================================================== */
 
 function setOfflineStatus(){
 
@@ -1826,9 +1748,9 @@ document.getElementById(
 }
 
 
-/* =====================================================
-   MAIN WEATHER LOADER
-===================================================== */
+/* ==========================================
+   MAIN LOAD
+========================================== */
 
 async function loadWeather(){
 
@@ -1840,27 +1762,27 @@ document.getElementById(
 ).value;
 
 
-/* GET WEATHER */
+/* GET REAL WEATHER */
 
 const weather =
 await getRealWeather();
 
 
-/* DISPLAY WEATHER */
+/* SHOW WEATHER */
 
 displayWeather(
 weather
 );
 
 
-/* DISPLAY FORECAST */
+/* SHOW FORECAST */
 
 displayForecast(
 weather.hourly
 );
 
 
-/* SAVE WEATHER */
+/* SAVE LAST WEATHER */
 
 localStorage.setItem(
 "lastWeather",
@@ -1870,9 +1792,9 @@ weather
 );
 
 
-/* ==============================================
-   SEND DATA TO AI BACKEND
-============================================== */
+/* ========================================
+   SEND REAL WEATHER TO AI
+======================================== */
 
 try{
 
@@ -1882,10 +1804,14 @@ weather
 );
 
 
+/* SHOW AI RESULT */
+
 displayRisk(
 result
 );
 
+
+/* ONLINE */
 
 setOnlineStatus();
 
@@ -1894,12 +1820,16 @@ setOnlineStatus();
 catch(error){
 
 console.log(
-"Backend unavailable:",
+"AI backend unavailable:",
 error
 );
 
 
-/* LOCAL FALLBACK */
+/*
+Weather is real,
+but AI backend is unavailable.
+Use local fallback.
+*/
 
 const result =
 calculateOfflineRisk(
@@ -1926,9 +1856,9 @@ error
 );
 
 
-/* ==============================================
-   USE LAST SAVED WEATHER
-============================================== */
+/* ========================================
+   USE SAVED WEATHER
+======================================== */
 
 const saved =
 localStorage.getItem(
@@ -1939,9 +1869,7 @@ localStorage.getItem(
 if(saved){
 
 const weather =
-JSON.parse(
-saved
-);
+JSON.parse(saved);
 
 
 displayWeather(
@@ -1978,7 +1906,7 @@ else{
 document.getElementById(
 "systemStatus"
 ).textContent =
-"Unable to load data";
+"Weather unavailable";
 
 
 document.getElementById(
@@ -1993,16 +1921,16 @@ document.getElementById(
 }
 
 
-/* =====================================================
+/* ==========================================
    DEMO MODE
-===================================================== */
+========================================== */
 
 async function runDemo(level){
 
 let weather;
 
 
-/* ================= LOW ================= */
+/* LOW */
 
 if(level === "LOW"){
 
@@ -2027,7 +1955,7 @@ river:1.7
 }
 
 
-/* ================= MODERATE ================= */
+/* MODERATE */
 
 else if(level === "MODERATE"){
 
@@ -2052,7 +1980,7 @@ river:2.9
 }
 
 
-/* ================= HIGH ================= */
+/* HIGH */
 
 else if(level === "HIGH"){
 
@@ -2077,7 +2005,7 @@ river:3.9
 }
 
 
-/* ================= CRITICAL ================= */
+/* CRITICAL */
 
 else{
 
@@ -2102,16 +2030,16 @@ river:6.2
 }
 
 
-/* DISPLAY DEMO WEATHER */
+/* SHOW DEMO VALUES */
 
 displayWeather(
 weather
 );
 
 
-/* ==============================================
-   SEND DEMO DATA TO AI BACKEND
-============================================== */
+/* ========================================
+   TRY REAL AI MODEL
+======================================== */
 
 try{
 
@@ -2132,12 +2060,10 @@ setOnlineStatus();
 
 catch(error){
 
-console.log(
-"Demo backend unavailable"
-);
-
-
-/* FALLBACK DEMO RESULT */
+/*
+Fixed demo values are used only
+when backend is unavailable.
+*/
 
 let result;
 
@@ -2151,7 +2077,7 @@ risk_score:15,
 risk_level:"LOW",
 
 warning:
-"Normal monitoring recommended."
+"Demo: Normal monitoring recommended."
 
 };
 
@@ -2166,7 +2092,7 @@ risk_score:45,
 risk_level:"MODERATE",
 
 warning:
-"Monitor rainfall and water levels."
+"Demo: Monitor rainfall and water levels."
 
 };
 
@@ -2181,7 +2107,7 @@ risk_score:70,
 risk_level:"HIGH",
 
 warning:
-"Flood warning. Prepare emergency response."
+"Demo: Flood warning. Prepare emergency response."
 
 };
 
@@ -2196,7 +2122,7 @@ risk_score:92,
 risk_level:"CRITICAL",
 
 warning:
-"Critical flood risk. Immediate emergency preparedness required."
+"Demo: Critical flood risk. Immediate emergency preparedness required."
 
 };
 
@@ -2215,25 +2141,24 @@ setOfflineStatus();
 }
 
 
-/* =====================================================
+/* ==========================================
    INITIAL LOAD
-===================================================== */
+========================================== */
 
 displayHistory();
+
 
 loadWeather();
 
 
-/* =====================================================
-   AUTO REFRESH
-   EVERY 10 MINUTES
-===================================================== */
+/* ==========================================
+   AUTO REFRESH EVERY 10 MINUTES
+========================================== */
 
 setInterval(
 loadWeather,
 10 * 60 * 1000
 );
-
 
 </script>
 
